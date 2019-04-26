@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<title>User Registration</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    
+    <link href="assets/css/Register.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $('#password').keyup(function () {
+                $('#strengthMessage').html(checkStrength($('#password').val()))
+            })
+            function checkStrength(password) {
+
+                //initial strength
+                var strength = 0
+
+                if (password.length == 0) {
+                    $('#strengthMessage').removeClass()
+                    return ''
+                }
+                //if the password length is less than 7, return message.
+                if (password.length < 8) {
+                    $('#strengthMessage').removeClass()
+                    $('#strengthMessage').addClass('ToShort')
+                    $('#min').text('*Minimum 8 Characters Required Ex-Alex@1234');
+                    //return 'Normal'
+                }
+
+                //length is ok, lets continue.
+
+                //if length is 8 characters or more, increase strength value
+                if (password.length > 9) strength += 1
+
+                //if password contains both lower and uppercase characters, increase strength value
+                if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) strength += 1
+
+                //if it has one special character, increase strength value
+                if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) strength += 1
+
+                //if it has two special characters, increase strength value
+                if (password.match(/(.*[!,%,&,@,#,$,^,*,?,_,~].*[!,",%,&,@,#,$,^,*,?,_,~])/)) strength += 1
+
+                //now we have calculated strength value, we can return messages
+
+                //if value is less than 2
+                if (strength < 2) {
+                    $('#strengthMessage').removeClass()
+                    $('#strengthMessage').addClass('Weak')
+                    //return 'Medium'
+                }
+                else if (strength == 2) {
+                    $('#strengthMessage').removeClass()
+                    $('#strengthMessage').addClass('Good')
+                    //return 'Strong'
+                } else {
+                    $('#strengthMessage').removeClass()
+                    $('#strengthMessage').addClass('Strong')
+                    $('#min').text('');
+                    //return 'Very Strong'
+                } 
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="signup-form">
+    <form action="Register.aspx" method="post">
+		<h2>Register</h2>
+		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
+        <div class="form-group">
+			<div class="row">
+				<div class="col-xs-4"><input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required="required"></div>
+				<div class="col-xs-4"><input type="text" class="form-control" id="mname" name="mname" placeholder="Middle Name" ></div>
+                <div class="col-xs-4"><input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" ></div>
+			</div>        	
+        </div>
+        <div class="form-group">
+        	<input type="text" class="form-control" id="UserID" name="UserID" placeholder="UserID" required="required"/>
+        </div>
+        <div class="form-group">
+        	<input type="email" class="form-control" id="email" name="email" placeholder="Email ID" required="required"/>
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" id="password" name="password" pattern="^(?=[^\d_].*?\d)\w(\w|[!@#$%]){7,20}" placeholder="Password" required="required" />
+             <div id="min">*Minimum 8 Characters Required Ex-Alex@1234</div>
+        <div id="strengthMessage"></div>
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" id="password_confirm" name="cpassword" pattern="^(?=[^\d_].*?\d)\w(\w|[!@#$%]){7,20}" placeholder="Confirm Password" required="required">
+        </div>        
+		<div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+        </div>     
+    </form>
+	<div class="text-center">Already have an account?<a href="Login.html">Sign in</a></div>
+</div>
+</body>
+</html>   

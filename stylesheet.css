@@ -1,0 +1,27 @@
+.heading {
+    margin-bottom: 1em;
+    margin-left: -20px;
+    padding: .2em 20px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3em;
+    background: #EEE;
+    border-bottom: 1px solid #a51e22;
+}
+
+.asterik{
+color: red;
+}
+.h3 {
+text-decoration: underline;
+}
+.pull-right {
+font-size: 14px !important;
+    line-height: 1.42857143 !important;
+    border-radius: 4px !important;
+}
+.btn-primary {
+    
+    background-color: #a51e22 !important;
+    border-color: #a51e22 !important;
+}

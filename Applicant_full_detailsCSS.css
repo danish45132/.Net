@@ -1,0 +1,151 @@
+﻿.heading {
+    margin-bottom: 1em;
+    margin-left: -20px;
+    padding: .2em 20px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3em;
+    background: #EEE;
+    border-bottom: 1px solid #a51e22;
+}
+
+.asterik{
+color: red;
+}
+.h3 {
+text-decoration: underline;
+}
+.pull-right {
+font-size: 14px !important;
+    line-height: 1.42857143 !important;
+    border-radius: 4px !important;
+}
+.btn-primary {
+    
+    background-color: #a51e22 !important;
+    border-color: #a51e22 !important;
+}
+.heading1 {
+    margin-bottom: 1em;
+    margin-left: -20px;
+    padding: .2em 20px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3em;
+    background: #EEE;
+    border-bottom: 1px solid #0f7ddc;
+    text-align:center;
+}
+
+/*.include
+{
+	height: 200px;
+    width: 100%;
+    background:url(http://localhost:62241/img/visabanner.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}*/
+.body {
+     background-image:url("http://localhost:62241/assets/img/ApplicantBG.jpg");
+    margin: 0 auto;
+    min-height: 100%;
+    font-family: 'Yanone Kaffeesatz', Consolas;
+}
+.btn {
+    text-align:center;
+    margin-left: -20px;
+    padding: .2em 20px;
+    font-size: 18px;
+    font-weight: 700;
+}
+nav {
+      width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px 0;
+    box-shadow: 0px 5px 0px #dedede;
+    border-radius: 0px 0px 23px 23px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+
+nav > .nav.nav-tabs{
+
+  border: none;
+    color:#fff;
+    background:#272e38;
+    border-radius:0;
+
+}
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active
+{
+  border: none;
+    padding: 18px 25px;
+    color:#fff;
+    background:#272e38;
+    border-radius:0;
+}
+
+nav > div a.nav-item.nav-link.active:after
+ {
+  content: "";
+  position: relative;
+  bottom: -60px;
+  left: -10%;
+  border: 15px solid transparent;
+  border-top-color: #e74c3c ;
+}
+.tab-content{
+  background: #fdfdfd;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    border-top:5px solid #e74c3c;
+    border-bottom:5px solid #e74c3c;
+    padding:30px 25px;
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus
+{
+  border: none;
+    background: #e74c3c;
+    color:#fff;
+    border-radius:0;
+    transition:background 0.20s linear;
+}

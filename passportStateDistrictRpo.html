@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="assets/css/RPO.css" rel="stylesheet" />
+ <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+        var sPageURL = window.location.search.substring(2);
+        var sURLVariables = sPageURL.split('&');
+        var applicationID = sURLVariables[0];
+        //alert(applicationID);
+        $(document).ready(function () {
+            $("#ApplicationID").val(applicationID);
+
+        });
+
+        $(document).ready(function () {
+            $(document).ready(function (event) {
+                $('#State_Selection').change(function (e) {
+                    var stateID = $("#State_Selection option:selected").val();
+                    //alert(stateID);
+                    // put code here
+                    $.ajax({
+                        type: "POST",
+                        url: "passportSatetDistrictRpo.aspx/SelectDistrict",
+                        data: JSON.stringify({ stateID: stateID}),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: OnSuccess
+                    });
+                });
+            });
+        });
+        function OnSuccess(data) {
+            //alert(data.d);
+            var District = data.d.split(',');
+            
+            var append;
+            //$('#District_Rpo').append('<option value="1">One</option>');
+            for (var i = 0; i < District.length-1; i++)
+            {
+                //alert(District[i]);
+                append += '<option value="'+District[i]+'">' + District[i] + '</option>';
+                //var district = District[count];
+                
+                //// alert(district);
+                //$("#District_Rpo").append('append');
+                ////$("#District_Rpo").append('<option>'+district+'</option>');
+            }
+            $('#District_Rpo').empty().append(append);
+      
+        }
+
+        $(document).ready(function () {
+            $(document).ready(function (event) {
+                $('#State_Selection').change(function (e) {
+                    var stateID = $("#State_Selection option:selected").val();
+                    //alert(stateID);
+                     //put code here
+                    $.ajax({
+                        type: "POST",
+                        url: "passportSatetDistrictRpo.aspx/SelectRpo",
+                        data: JSON.stringify({ stateID: stateID }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: OnSuccess1
+                    });
+                });
+            });
+        });
+        function OnSuccess1(data) {
+            //alert(data.d);
+            var Rpo = data.d.split(',');
+
+            var append;
+            //$('#District_Rpo').append('<option value="1">One</option>');
+            for (var i = 0; i < Rpo.length - 1; i++) {
+                //alert(District[i]);
+                append += '<option value="' + Rpo[i] + '">' + Rpo[i] + '</option>';
+                //var district = District[count];
+
+                //// alert(district);
+                //$("#District_Rpo").append('append');
+                ////$("#District_Rpo").append('<option>'+district+'</option>');
+            }
+            $('#Rpo').empty().append(append);
+
+        }
+
+    </script>
+</head>
+<body class="body">
+      <div class="include">
+</div>
+    <section>
+        <div class="container">
+    <h3 class="heading1">Regional Passport Office</h3>
+<form class="form-horizontal" method="post" action="passportSatetDistrictRpo.aspx">
+     <div class="form-group">
+     <div class="row">
+         <input type="hidden" id="ApplicationID" name="ApplicationID" />
+     <label class="control-label col-sm-3 ">State <span class="asterik">*</span></label>
+      <div class="col-sm-4">
+            <select id="State_Selection" name="State_Selection" class="form-control" required="required">
+            <option>----Select state----</option>
+            <option value="state01">Andhra Pradesh</option>
+            <option value="state02">Arunachal Pradesh</option>
+            <option value="state03">Assam</option>
+            <option value="state04">Bihar</option>
+            <option value="state05">Chhattisgarh</option>
+            <option value="state06">Goa</option>
+            <option value="state07">Gujarat</option>
+            <option value="state08">Haryana</option>
+            <option value="state09">Himachal Pradesh</option>
+            <option value="state10">Jharkhand</option>
+            <option value="state11">Karnataka</option>
+            <option value="state12">Kerala</option>
+            <option value="state13">Madhya Pradesh</option>
+            <option value="state14">Maharashtra</option>
+            <option value="state15">Manipur</option>
+            <option value="state16">Meghalaya</option>
+            <option value="state17">Mizoram</option>
+            <option value="state18">Nagaland(Kohima)</option>
+            <option value="state19">Odisha</option>
+            <option value="state20">Punjab</option>
+            <option value="state21">Rajasthan</option>
+            <option value="state22>">Sikkim</option>
+            <option value="state23">Tamil Nadu</option>
+            <option value="state24">Telangana</option>
+            <option value="state25">Tripura</option>
+            <option value="state26">Uttarakhand</option>
+            <option value="state27">Uttar Pradesh</option>
+            <option value="state28">West Bengal</option>
+            <option value="state29">Delhi</option>
+            <option value="state30">J&K</option>
+            </select>
+      </div>
+   </div>
+</div>
+<div class="form-group">
+    <div class="row">
+    <label class="control-label col-sm-3">District <span class="asterik">*</span></label>
+      <div class="col-sm-4">
+       <select id="District_Rpo" name="District_Rpo" class="form-control" required="required">
+           <option>--Select District--</option>
+           
+       </select>
+     </div>
+</div>
+    </div>
+
+    <div class="form-group">
+    <div class="row">
+    <label class="control-label col-sm-3">Select Regional Passport Office<span class="asterik">*</span></label>
+      <div class="col-sm-4">
+       <select id="Rpo" name="Rpo" class="form-control" required="required">
+           <option>--Select Rpo--</option>
+           
+       </select>
+     </div>
+</div>
+    </div>
+
+      <div class="form-group">
+    <div class="row">
+    <label class="control-label col-sm-3">AppointmentDate<span class="asterik">*</span></label>
+      <div class="col-sm-4">
+       <input type="date" class="form-control" name="AppointmentDate" required="required" />
+     </div>
+</div>
+    </div>
+
+    <div class="form-group">       
+      <div class="col-sm-3">
+          <input type="Submit" class="btn btn-primary btn-md" name="submit" value="Next" style="text-align:center;margin-left:450px;"/>
+      </div>
+     </div>
+</form>
+            </div>
+        
+     </section>
+ 
+</body>
+</html>

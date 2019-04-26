@@ -1,0 +1,704 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link href="./main.css" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet" />
+    <!--<link href="main.css" rel="stylesheet" />-->
+    <title></title>
+    <script src="main.js"></script>
+    <!--<script>
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                var pass = $("#passportMain").val();
+                var pass1 = $("#passportMatch").val();
+                alert(pass);
+                alert(pass1);
+                if (pass == pass1) {
+                    window.location.href = 'VisaPage2.html';
+                }
+            });
+        });
+    </script>-->
+    <!--<script src="main.js"></script>-->
+</head>
+<body>
+    <div class="container">
+        <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+	            <h4 class="card-title mt-3 text-center">Details for Visa</h4>
+	                <p class="text-center">Get Started for Your Tour</p>
+	<!--<p>
+		<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+	</p>-->
+	                <p class="divider-text">
+                        <span class="bg-light">Fill Details</span>
+                    </p>
+	<form name="Registration" action="VisaPage1.aspx" onsubmit="ac()">
+	    <div class="form-group input-group">
+		    
+		        <span class="input-group-text"> <i class="fa fa-user" ></i> </span>
+		     
+            <input name="First_Name" id="First_Name" class="form-control" placeholder="First name"  autofocus="autofocus" type="text" />
+            <input name="Middle_name" id="Middle_Name" class="form-control" placeholder="Middle name" type="text"/>
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+		
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 
+            <input name="Last_Name" id="Last_Name"class="form-control" placeholder="Last name" type="text"/>
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+    	    
+		        <span class="input-group-text"> <i class="fa fa-envelope" ></i> </span>
+		    
+                <input name="Email_address" id="Email_address"class="form-control" placeholder="Email address" type="email" />
+        </div> <!-- form-group// -->
+
+        <div>
+            <div class="form-group input-group">
+    	        
+		              <span class="input-group-text"> <i class="fa fa-birthday-cake" ></i> </span>
+		        
+                    <input type="date" id="DOB" name="dob" value="2000-01-01"  />
+            </div>
+        </div>
+        <!--Gender-->
+        <span class="label label-primary">Gender</span>
+            
+   
+        <div>
+            <input type="radio" id="Male" name="gender" checked="checked"/>
+            <label for="Male">Male</label>
+            <input type="radio" id="Female" name="gender"/>
+            <label for="Female">Female</label>
+            <input type="radio" id="Others" name="gender"/>
+            <label for="Others">Others</label>
+        </div>
+          
+        <div class="form-group input-group" id="origin_country">
+    	
+		    <span class="input-group-text"> <i class="fa fa-flag" ></i> </span>
+		
+		<select class="form-control" id="origin_country1" name="origin_country1">
+			<option selected=""> Origin Country</option>
+			<option value="usa" >U.S.A</option>
+			<option value="uk">U.K</option>
+			<option value="china">China</option>
+            <option value="france">France</option>
+            <option value="germany">Germany</option>
+            <option value="india">India</option>
+		</select>
+	    </div> <!-- form-group end.// -->
+        <div class="form-group input-group" id="destination_country">
+    	    
+		        <span class="input-group-text"> <i class="fa fa-plane" ></i> </span>
+		    
+		    <select class="form-control" id="destination_country1" name="destination_country1">
+			    <option selected=""> Destination Country</option>
+			    <option value="usa">U.S.A</option>
+			    <option value="uk">U.K</option>
+			    <option value="china">China</option>
+                <option value="france">France</option>
+                <option value="germany">Germany</option>
+                <option value="india">India</option>
+		    </select>
+        </div> <!-- form-group end.// -->
+        <div class="form-group input-group">
+    	    
+		        <span class="input-group-text"> <i class="fa fa-cc-visa" aria-hidden="true"></i> </span>
+		    
+		    <select class="form-control" id="visa_type" name="visaType" >
+			    <!--<option selected=""> Select Visa type</option>
+			    <option value="1" id="1">Student</option>
+			    <option value="2" id="2">Business</option>
+			    <option value="3" id="3">Tourist</option>
+                <option value="4" id="4">Employment</option>
+                <option value="5" id="5">Medical</option>-->
+		    </select>
+	
+	    </div> <!-- form-group end.// -->
+        <div class="form-group input-group">
+            
+		        <span class="input-group-text"> <i class="fa fa-clock" ></i> </span>
+		    
+            <select class="form-control" id="Period" name="Period">
+			    <option selected="">Stay Period</option>
+			    <option>3 months</option>
+			    <option>6 months</option>
+			    <option>1 years</option>
+                <option>5 years</option>
+		    </select>
+        </div> <!-- form-group end.// -->
+
+        <div class="form-group input-group">
+    	    
+		        <span class="input-group-text"> <i class="fa fa-suitcase"></i> </span>
+		    
+                <input name="purpose" class="form-control" placeholder="Purpose" type="text" id="purpose"/>
+        </div>
+        <div class="form-group input-group">
+    	    
+		        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            <div class="upload-btn-wrapper">
+              <button class="btn" id="LOI">Letter Of Invitation</button>
+              <input type="file" name="invite" id="invite"/>
+            </div>
+		    </div>
+            
+        
+        <div class="form-group input-group">
+		    
+		        <span class="input-group-text"> <i class="fa fa-home"></i> </span>
+		     </div>
+                <input name="Address" id="Address"class="form-control" placeholder="Address" type="text"   />
+       
+        <div class="upload-btn-wrapper">
+          <button class="btn">Address Proof</button>
+          <input type="file" name="Proof_Address" id="Proof_Address" />
+        </div>
+        <div class="form-group input-group">
+    	   
+		        <span class="input-group-text"> <i class="fa fa-id-card"></i> </span>
+            <select class="form-control" name="NID" id="NID" >
+			<option selected=""> National ID Type</option>
+			<option>Adhar Card</option>
+			<option>Ration Card</option>
+			<option>Pan Card</option>
+            <option>Driving Licence</option>
+            
+		</select>
+		    </div>
+		
+        <div class="upload-btn-wrapper">
+          <button class="btn">Upload ID</button>
+          <input type="file" name="National_ID_type" id="National_ID_type" />
+        </div>
+       
+
+        <div class="form-group input-group">
+		    
+		        <span class="input-group-text"> <i class="fa fa-id-badge"></i> </span>
+            <input name="National_ID" id="National_ID"class="form-control" placeholder="National ID in Text" type="text" maxlength="12"  />
+		     </div>
+            
+        <div class="form-group input-group">
+    	    
+		        <span class="input-group-text"> <i class="fa fa-suitcase"></i> </span>
+		    </div>
+                <input name="passportMain" id="Passport"  class="form-control" placeholder="Passport Number" type="password" />
+                <span class="addMore" title="First two characters rest numbers "><i class="fa fa-info" style="color:cornflowerblue;padding:8px"></i> </span>
+        
+
+        <div class="form-group input-group">
+            
+                   <span class="input-group-text"> <i class="fa fa-suitcase"></i> </span>
+            
+                    <input name="passportMatch" id="Passport1"class="form-control" placeholder="Passport Number" type="text" />
+        </div>
+        
+        <div class="form-group input-group">
+		    <div class="upload-btn-wrapper">
+          <button class="btn">6 Months Bank Statement </button>
+          <input type="file" name="Bank_Statement" id="File1" />
+        </div>
+        </div>          
+       
+        <div class="form-group input-group">
+    	    
+		        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		    
+            <select class="custom-select" style="max-width: 120px;" name="phone" id="phone" >
+		        <option selected=""  >+91</option>
+		        <option value="1" >+1</option>
+		        <option value="2"  >+86</option>
+		        <option value="3"  >+44</option>
+                 <option value="4"  >+49</option> 
+                <option value="5"  >+33</option>
+		    </select>
+    	        <input name="Phone_number" id="Phone_number" class="form-control" placeholder="Phone number" type="text" maxlength="10" />
+        </div> <!-- form-group// -->
+   <!--U.S.A div-->
+        
+        <div id="usa" style="display:none;">
+        <div class="form-group input-group">
+    	
+		    <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+		
+		<select class="form-control" name="citizen_type" >
+			<option selected="" id="citizen_type">Citizen Type</option>
+			<option >Immigrant</option>
+			<option >Non-Immigrant</option>
+			</select>
+            </div>
+            
+        <div class="form-group input-group">
+    	    <span class="input-group-text"> <i class="fa fa-ambulance"></i> </span>
+            <div class="upload-btn-wrapper">
+                <button class="btn">Medical Report </button>
+                <input type="file" name="Medical_report" id="Medical_report" />
+            </div>
+        </div>
+
+           <div class="form-group input-group">
+    	
+		    <span class="input-group-text"> <i class="fa fa-car"></i> </span>
+                   <div class="upload-btn-wrapper">
+  <button class="btn" id="IDL" name="Driving_Licence">International Driving Licence</button>
+  <input type="file" name="Driving_Licence" id="Driving_Licence" />
+        </div>
+		</div>
+         
+ 
+        <div class="form-group input-group">
+    	
+		    <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+            <select class="form-control" name="Visit_US" id="Visit_US">
+			<option selected="">Visited Earlier</option>
+			<option>Yes</option>
+			<option>No</option>
+			</select>
+		</div>
+		
+            
+            
+		 <div class="form-group input-group">
+    	    <span class="input-group-text"> <i class="fa fa-id-card"></i> </span>
+             <input name="Social_Security_Number" id="Social_Security_Number" class="form-control" placeholder="Social Security Number"  type="text" maxlength="9" />
+        </div>
+        </div>
+        <!--USA Div close-->
+
+         <div class="form-group input-group">
+    	
+		    <span class="input-group-text"> <i class="fa fa-id-card"></i> </span>
+             <select class="form-control" id="picker" name="picker">
+			<option selected="">Minor</option>
+			<option value="[@option_id@]">Yes</option>
+            <option value="[@option_id@]">No</option>
+			</select>
+		</div>
+             
+		
+             
+           <div class="form-group input-group">
+    	        <div class="upload-btn-wrapper">
+                  <button class="btn" id="btn-minor_cert">Minor's Certificate</button>
+                  <input type="file" name="Minor_Certificate" id="Minor_certificate" />
+                </div>
+               <div class="upload-btn-wrapper">
+                  <button class="btn" id="btn-pass">Parents Passport Copy</button>
+                  <input type="file" name="Minors_parents_passport" id="Minors_parents_passport" />
+                </div>
+               <div class="upload-btn-wrapper">
+                  <button class="btn" id="btn-visa">Parents Visa Copy</button>
+                  <input type="file" name="Minors_parents_visa" id="Minors_parents_visa" />
+                </div>
+               <div class="upload-btn-wrapper">
+                  <button class="btn" id="LOA">Leter Of Authorization</button>
+                  <input type="file" name="Letter_of_authorisation" id="File2" />
+                </div>
+               <div> 
+               <span class="addMore" style="padding:5px;" title="The letter of authorization should include:
+
+                    1)The parents' or legal guardian's address(es) and telephone number(s) and
+                    2)The name, address and telephone number of the custodian,
+                    signed by their parent(s) or legal guardian."><i class="fa fa-info"></i> </span>
+                </div>
+           </div>
+         
+             </div>
+        <!--UK div open-->
+                  <div id="uk" style="display:none;">
+		   <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-id-card"></i> </span>
+		</div>
+		<select class="form-control" id="Earlier_visa" name="Earlier_visa" >
+			<option selected="">Previous U.K. Visa</option>
+			<option value="0">Yes</option>
+            <option value="1">No</option>
+			</select>
+             
+              <div class="form-group input-group">
+    	
+		    <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+                   <div class="upload-btn-wrapper" id="Div3">
+  <button class="btn" id="UKVisa">Previous U.K. Visa</button>
+  <input type="file" name="PrevVisa" id="PrevVisa"/>
+        </div>
+            </div>
+                 
+               <div class="form-group input-group">
+    	
+		    <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+                   <div class="upload-btn-wrapper" id="Div4">
+  <button class="btn" id="Med_cert">Medical Clearance Certificate</button>
+  <input type="file" name="Medical_cert" id="Medical_cert"/>
+        </div>
+            </div>
+                 
+           
+                 <div class="form-group input-group" id="mrgc">
+    	
+		    <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+                   <div class="upload-btn-wrapper" id="Div5">
+  <button class="btn" id="Marriage_certificate">Marriage Certificate</button>
+  <input type="file" name="Marriage_cert" id="Marriage_cert"/>
+        </div>
+            <button class="addMore" title="Only If Married"><i class="fa fa-info"></i> </button> 
+            </div>
+              
+               <div class="form-group input-group">
+    	
+		    <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+                   <div class="upload-btn-wrapper" id="Div6">
+  <button class="btn" id="Travel_history">Travel History</button>
+  <input type="file" name="TravelHistory" id="TravelHistory"/>
+                     
+        </div>
+              <button class="addMore" title="Passport page history"><i class="fa fa-info"></i> </button> 
+            </div>
+             
+       
+             
+                  <div class="form-group input-group">
+    	
+		    <span class="input-group-text"> <i class="fa fa-book"></i> </span>
+		</div>
+		<input name="Highest_edu" type="text" id="Highest_edu" placeholder="Highest Education" />
+    
+       
+              </div>  
+        </div>
+        <!--UK Div close-->
+
+
+        <!--China Div--> 
+
+        <div id="china" style="display:none;" >
+
+           <div class="form-group input-group">
+
+   
+
+   <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+
+          <div class="upload-btn-wrapper">
+
+ <button class="btn" id="btn-Business_letter">Bussiness Letter</button>
+
+ <input type="file" name="business_letter" id="business_letter"/>
+
+    </div>
+
+ </div>
+
+     
+
+            
+           <div class="form-group input-group">
+
+   
+
+   <span class="input-group-text"> <i class="fa fa-credit-card"></i> </span>
+
+          <div class="upload-btn-wrapper">
+
+ <button class="btn" name=Salary_Slip1 id="Salary_Slip1">Salary Slip</button>
+
+ <input type="file" name="Salary_Slip" id="Salary_Slip"/>
+
+    </div>
+
+ </div>
+
+    
+            
+
+          <div class="form-group input-group">
+        <span class="input-group-text"> <i class="fa fa-id-card"></i> </span>
+        <select class="form-control" id="ChVisa" name="ChVisa" >
+
+    <option selected="">Previous Chinese Visa</option>
+    <option value="0">Yes</option>
+    <option value="1">No</option>
+    </select>
+ </div>
+
+ 
+
+            
+
+           <div class="form-group input-group" id="btnChina">
+   <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+
+          <div class="upload-btn-wrapper" id="btnCh">
+
+ <button class="btn" id="btncv">Previous Chinese Visa</button>
+
+ <input type="file" name="PrevChina" id="prevChina"/>
+
+    </div>
+
+      </div>
+            <div class="form-group input-group">
+
+   
+
+   <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div8">
+
+ <button class="btn" id="btn-medi_report">Medical Report</button>
+
+ <input type="file" name="medi_report" id="medi_report"/>
+    </div>
+ </div>
+         
+              </div>
+
+           
+ 
+          
+        <!--Germany Div open-->
+        <div id="germany" style="display:none">
+
+           <div class="form-group input-group">
+
+   
+
+   <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div9">
+
+ <button class="btn" id="btn-Insurance">Health Insurance</button>
+
+ <input type="file" name="Health_Insurance" id="Health_Insurance"/>
+
+    </div>
+      </div>
+     
+
+           <div class="form-group input-group">
+
+   
+
+   <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div10">
+
+ <button class="btn" id="btn-Proof_of_accomodation">Proof Of Accomodation</button>
+
+ <input type="file" name="Proof_of_accomodation" id="Proof_of_accomodation"/>
+
+    </div>
+      </div>
+      
+
+           <div class="form-group input-group">
+
+  
+
+   <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div11">
+
+ <button class="btn" id="btn-Acceptance_letter_student">Acceptance Letter</button>
+
+ <input type="file" name="Acceptance_letter_student" id="Acceptance_letter_student"/>
+
+    </div>
+       <button class="addMore" title="Your Authorised Institutes Call letter"><i class="fa fa-info"></i> </button>
+      </div>
+
+
+
+      
+
+            <div class="form-group input-group">
+
+   
+
+       <span class="input-group-text"> <i class="fa fa-tasks"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div12">
+
+ <button class="btn" id="Btn-Financial_sustainability">Financial Sustainability</button>
+
+ <input type="file" name="Financial_sustainability" id="Financial_sustainability"/>
+
+            </div>
+            <button class="addMore" title="Expected Expense and Bank Statement"><i class="fa fa-info"></i> </button>
+
+     </div>
+
+ 
+
+           </div>
+        <!--Germany div close-->
+                       <!--France div starts-->
+          <div id="france" style="display:none;">
+
+       <div class="form-group input-group">
+
+   
+
+       <span class="input-group-text"> <i class="fa fa-tasks"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div13">
+
+ <button class="btn" id="btn-Bank_details">Bank Account Details</button>
+
+ <input type="file" name="Bank_details" id="Bank_details"/>
+
+            </div>
+
+
+
+            <button class="addMore" title="Deposit Of 30,000 Euro required"><i class="fa fa-info"></i> </button>
+
+     </div>
+
+ 
+
+       <div class="form-group input-group">
+
+   
+
+   <span class="input-group-text"> <i class="fa fa-credit-card"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div14">
+
+ <button class="btn" id="btn-Income">Income Tax Return</button>
+
+ <input type="file" name="income_tax_return" id="income_tax_return"/>
+
+    </div>
+
+      </div>
+
+      <div class="form-group input-group">
+
+       <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div15">
+
+ <button class="btn" id="btn-civil_status">Civil Status Proof</button>
+
+ <input type="file" name="civil_status" id="civil_status"/>
+
+            </div>
+
+
+
+            <button class="addMore" title="Marital Status: Single/Divorced/Married"><i class="fa fa-info"></i> </button>
+
+     </div>
+
+        <div class="form-group input-group">
+
+   <span class="input-group-text"> <i class="fa fa-home"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div16">
+
+ <button class="btn" id="btn-Accomodation">Accomodation proof</button>
+
+ <input type="file" name="Accomodation" id="Accomodation"/>
+
+    </div>
+
+      </div>
+              </div>
+              <!--France div close-->
+
+        <!--India div open-->
+        <div id="india" style="display:none;">
+        <div class="form-group input-group">
+
+   
+
+   <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div17">
+
+ <button class="btn" id="btn-HealthInsurance">Health Insurance</button>
+
+ <input type="file" name="HealthInsurance" id="HealthInsurance"/>
+
+    </div>
+      </div>
+     
+
+           <div class="form-group input-group">
+
+   
+
+   <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div18">
+
+ <button class="btn" id="btn-proof_accomodation">Proof Of Accomodation</button>
+
+ <input type="file" name="proof_accomodation" id="proof_accomodation"/>
+
+    </div>
+      </div>
+      
+
+           <div class="form-group input-group">
+
+  
+
+   <span class="input-group-text"> <i class="fa fa-file"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div19">
+
+ <button class="btn" id="btn-Acceptance_letter">Acceptance Letter from Institution</button>
+
+ <input type="file" name="Acceptance_letter" id="Acceptance_letter"/>
+
+    </div>
+       <button class="addMore" title="Your Authorised Institute's/Hospital's Call letter"><i class="fa fa-info"></i> </button>
+      </div>
+
+            <div class="form-group input-group">
+
+       <span class="input-group-text"> <i class="fa fa-tasks"></i> </span>
+
+          <div class="upload-btn-wrapper" id="Div20">
+
+ <button class="btn" id="btn-financial_status">Financial Sustainability</button>
+
+ <input type="file" name="financial_status" id="financial_status"/>
+
+            </div>
+            <button class="addMore" title="previous 3 months Bank Statement"><i class="fa fa-info"></i> </button>
+
+     </div>
+            </div>
+        <!--India div close-->
+
+    <div class="form-group">
+        <input type="submit" id="submit" class="btn1 btn-primary btn-block"  value="submit"/>
+        </div>
+     <!-- form-group// -->      
+                                                            
+            </form>
+</article>
+ <!-- card.// -->
+     </div> 
+
+    
+</body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--<script src="assets/js/main.js"></script>-->
+    <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</html>

@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="stylesheet1.css" rel="stylesheet">
+ <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+</head>
+<body>
+     <div class="include">
+</div>
+    <section>
+        <div class="container">
+    <h3 class="heading1">Renew Passport</h3>
+              <form class="form-horizontal" action="RenewPassport.aspx" method="post">
+                  <input type="hidden" id="Application_ID" name="Application_ID" /> 
+             <div class="form-group">
+    <label class="control-label col-sm-4">Passport Number<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+                   <input type="text" name="passport_number" placeholder="Enter Passport Number" id="passport_number" class="form-control" />
+      </div>
+     </div>
+             <div class="form-group">
+    <label class="control-label col-sm-4">Name<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" />
+      </div>
+     </div>
+                   <div class="form-group">
+    <label class="control-label col-sm-4">Expiry Date<span class="asterik">*</span></label>
+      <div class="col-sm-1">
+                   <select class="form-control" name="months" size="0">
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>      
+      </div>
+                             <div class="col-sm-2">
+              <select class="form-control" name="year" size="0">
+                                            <option>2019</option>
+                                            <option>2020</option>
+                                            <option>2021</option>
+                                            <option>2022</option>
+                                            <option>2023</option>
+                                             <option>2024</option>
+                                            <option>2025</option>
+                                            <option>2026</option>
+                                             <option>2027</option>
+                                            <option>2028</option>
+                                            <option>2029</option>
+                                        </select>     
+      </div>
+     </div>
+         
+    <div class="form-group">       
+      <div class="col-sm-3">
+          <input type="submit" value="Next" class="btn btn-primary" style="margin-left:450px;" />
+          
+      </div>
+     </div>
+                  </form>
+            </div>
+        
+     </section>
+</body>
+</html>

@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ 
+ <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="Applicant_full_detailsCSS.css" rel="stylesheet" />
+    <link href="stylesheet.css" rel="stylesheet" />
+    <script>
+        var sPageURL = window.location.search.substring(2);
+        var sURLVariables = sPageURL.split('&');
+        var ApplicationID = sURLVariables[0];
+        //alert(applicationID);
+        $(document).ready(function () {
+            $("#ApplicationID").val(ApplicationID);
+
+            $.ajax({
+                type: "POST",
+                url: "Application_full_deatils.aspx/ApplicantDetails",
+                data: JSON.stringify({ ApplicationID: ApplicationID }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess
+            });
+        });
+        
+        
+        function OnSuccess(data) {
+            //alert(data.d);
+            var ApplicantDetails = data.d.split(',');
+                $(document).ready(function () {
+                $("#F_name").val(ApplicantDetails[0]);
+                $("#M_name").val(ApplicantDetails[1]);
+                $("#L_Name").val(ApplicantDetails[2]);
+                var DateOfBirth = ApplicantDetails[3].split(" ");
+                $("#DateOfBirth").val(DateOfBirth[0]);
+                alert(ApplicantDetails[3]);
+                $("#Email").val(ApplicantDetails[4]);
+                $("#Phone_no").val(ApplicantDetails[5]);
+                $("#Present_Address").val(ApplicantDetails[6]);
+                $("#Permanent_Address").val(ApplicantDetails[7]);
+                $("#City").val(ApplicantDetails[8]);
+                $("#State").val(ApplicantDetails[9]);
+                $("#Pin_Code").val(ApplicantDetails[10]);
+                $("#Country").val(ApplicantDetails[11]);               
+            });
+        }
+    </script>
+</head>
+<body class="body">
+    <!--<div class="include">
+</div>-->
+<section>
+    <div class="container">
+          <h3 class="heading1">Applicant Details</h3>
+         <form class="form-horizontal" action="Full_Details.aspx" method="post">
+           
+             <div class="form-group">
+             <label class="control-label col-sm-4">Application Id<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="ApplicationID" name="ApplicationID" readonly/>
+      </div>
+                 </div>
+               <div class="form-group">
+             <label class="control-label col-sm-4">First Name<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="F_name" name="F_name" placeholder="Enter First Name" readonly />
+      </div>
+                 </div>
+               <div class="form-group">
+             <label class="control-label col-sm-4">Middle Name</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="M_name" name="M_name" placeholder="Enter Middle Name" readonly />
+      </div>
+                 </div>
+               <div class="form-group">
+             <label class="control-label col-sm-4">Last Name</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="L_Name" name="L_Name" placeholder="Enter Last Name" readonly />
+      </div>
+                 </div>
+             <div class="form-group">
+             <label class="control-label col-sm-4">Fathers Name<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="Father_Name" name="Father_Name" placeholder="Enter Father's Name" required />
+      </div>
+                 </div>
+             <div class="form-group">
+             <label class="control-label col-sm-4">Mothers Name<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="Mother_Name" name="Mother_Name" placeholder="Mother's Name" required />
+      </div>
+                 </div>
+
+                <div class="form-group">
+             <label class="control-label col-sm-4">Date Of Birth<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="Text" class="form-control" id="DateOfBirth" name="DateOfBirth" readonly/>
+      </div>
+                 </div>
+               <div class="form-group">
+             <label class="control-label col-sm-4">Email<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="Email" name="Email" readonly />
+      </div>
+                 </div>
+               <div class="form-group">
+             <label class="control-label col-sm-4">Phone<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="Phone_no" name="Phone_no" readonly="readonly" />
+      </div>
+                 </div>
+                  
+                          <div class="form-group">
+             <label class="control-label col-sm-4">Present Address<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+          <textarea type="text" class="form-control" id="Present_Address" name="Present_Address" readonly="readonly" ></textarea>
+     
+      </div>
+                 </div>
+             <div class="form-group">
+             <label class="control-label col-sm-4">Permanent Address<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <textarea type="text" class="form-control" id="Permanent_Address" name="Permanent_Address" readonly="readonly" ></textarea>
+      </div>
+                 </div>
+                      <div class="form-group">
+             <label class="control-label col-sm-4">City<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="City" name="City" readonly="readonly"/ >
+      </div>
+                 </div>
+             <div class="form-group">
+             <label class="control-label col-sm-4">State<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="State" name="State" readonly="readonly" / >
+      </div>
+                 </div>
+               <div class="form-group">
+             <label class="control-label col-sm-4">Pin Code<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="Pin_Code" name="Pin_Code" readonly / >
+      </div>
+                 </div>
+             <div class="form-group">
+             <label class="control-label col-sm-4">Country<span class="asterik">*</span></label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="Country" name="Country" readonly / >
+      </div>
+                 </div>
+              <div class="form-group">
+
+       <label class="control-label col-sm-4">Any Crime Record<span class="asterik">*</span></label>
+
+   <div class="col-sm-3">
+
+
+
+           <input type="radio" name="record" value="Yes" id="show"> Yes<br>
+
+           <input type="radio" name="record" value="No" id="hide" checked="checked"> No<br>
+
+           <p style="display:none" id="p1"><input type="text" class="form-control" id="C_Record"  name="C_Record"></p>
+
+
+
+   </div>
+
+
+
+         </div>
+
+
+
+        <div class="form-group">
+
+       <label class="control-label col-sm-4">Any Running Case<span class="asterik">*</span></label>
+
+   <div class="col-sm-3">
+
+
+
+           <input type="radio" name="r_case" value="Yes" id="shows" > Yes<br>
+
+           <input type="radio" name="r_case" value="No" id="hides" checked="checked"> No<br>
+
+           <p style="display:none" id="p2"><input type="text" class="form-control" id="r_case" name="r_case"></p>
+
+
+
+   </div>
+
+
+
+         </div>
+             <div class="form-group">
+
+       <label class="control-label col-sm-4">Pan Card<span class="asterik">*</span></label>
+
+   <div class="col-sm-3">
+
+    <input type="text" class="form-control" id="Pan_Card" name="Pan_Card" placeholder="Enter PanCard Number" required / >
+
+   </div>
+
+         </div>
+
+       <div class="form-group">
+
+       <label class="control-label col-sm-4">Aadhar Card<span class="asterik">*</span></label>
+
+   <div class="col-sm-3">
+
+    <input type="text" class="form-control" id="Aadhar_Card" name="Aadhar_Card" placeholder="Enter Aadhar Number" required/ >
+
+   </div>
+
+         </div>
+
+       <div class="form-group">
+
+       <label class="control-label col-sm-4">Education Details<span class="asterik">*</span></label>
+
+   <div class="col-sm-3">
+
+   <select class="form-control" required="required" name="Education_Details">
+  <option value=""> Choose Option</option>
+  <option value="Metric">Metric</option>
+  <option value="Post Metric">Post Metric</option>
+  <option value="Graduation">Graduation</option>
+  <option value="Post Graduation">Post Graduation</option>
+</select>
+
+   </div>
+
+         </div>
+
+      <div class="form-group">
+
+       <label class="control-label col-sm-4">Education Proof<span class="asterik">*</span></label>
+
+   <div class="col-sm-3">
+
+     <input type="file" name="Education_Proof" accept="image/*" class="input-control" required="required" />
+
+   </div>
+
+
+
+         </div>
+
+       <div class="form-group">
+
+       <label class="control-label col-sm-4">Birth Certificate<span class="asterik">*</span></label>
+
+   <div class="col-sm-3">
+
+     <input type="file" name="Birth_Certificate" accept="image/*" required="required" /> 
+
+   </div>
+
+
+
+         </div>
+
+ <div class="form-group">
+
+       <label class="control-label col-sm-4">Address Proof<span class="asterik">*</span></label>
+
+   <div class="col-sm-3">
+
+     <input type="file" name="Address_Proof" accept="image/*" required="required" />
+
+   </div>
+         </div>     
+              <div class="form-group">
+
+       
+
+   <div class="col-sm-offset-5 col-sm-4" style="margin-top:50px; margin-bottom:100px;padding:10px;">
+
+     <input type="submit" name="pic" class="btn btn-danger btn-md"/>
+
+   </div>
+         </div>  
+             
+             </form>
+    </div>
+</section>
+ <script>
+
+     $(document).ready(function () {
+
+         $("#hide").click(function () {
+
+             $("#p1").hide();
+
+
+
+         });
+
+         $("#show").click(function () {
+
+             $("#p1").show();
+
+
+
+         });
+
+
+
+
+
+     });
+
+     $(document).ready(function () {
+
+         $("#hides").click(function () {
+
+             $("#p2").hide();
+
+
+
+         });
+
+         $("#shows").click(function () {
+
+             $("#p2").show();
+
+
+
+         });
+
+
+
+
+
+     });
+
+
+
+    </script>
+</body>
+</html>

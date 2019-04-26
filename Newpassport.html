@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Passport Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="assets/css/NewPassport.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+     <script>
+         //var sPageURL = window.location.search.substring(1);
+         //var a1 = new Array();
+         //var sURLVariables = sPageURL.split('&');
+         //a1.join(sURLVariables);
+         //for (var i = 0; i < a1.length; i++)
+         //{
+         //    alert(a1[i]);
+         //}
+
+         var sPageURL = window.location.search.substring(1);
+         var sURLVariables = sPageURL.split('&');
+         var f = sURLVariables[0];
+         var m = sURLVariables[1];
+         var l = sURLVariables[2];
+         var email = sURLVariables[3];
+         var userID = sURLVariables[4];
+         //var fname = sURLVariables[0].split('=');
+         //var mname = sURLVariables[1].split('=');
+         //var lname = sURLVariables[2].split('=');
+         //var email = sURLVariables[3].split('=');
+         $(document).ready(function () {
+             $("#fname").val(f);
+             $("#mname").val(m);
+             $("#lname").val(l);
+             $("#email").val(email);
+             $("#userID").val(userID);
+             //alert(ch);
+         });
+         //for (var i = 0; i < sURLVariables.length; i++) {
+         //    var sParameterName = sURLVariables[i].split('=');
+         //    alert(sParameterName);
+         //}
+         
+    </script>
+</head>
+    <div class="container">
+<body>
+    <form method="POST" action="NewPassport.aspx">
+        <div class="col">
+            <div class="minput">
+                <input type="hidden" id="userID" name="UserID" dir="auto" required />
+                <input type="text" id="fname" name="fname" dir="auto"  required />
+                <span class="bar"></span>
+                <label>First Name</label>
+            </div>
+            <div class="minput">
+                <input type="text" id="mname" name="mname" dir="auto" />
+                <span class="bar"></span>
+                <label>Middle Name</label>
+            </div>
+            <div class="minput">
+                <input type="text" id="lname" name="lname" dir="auto" />
+                <span class="bar"></span>
+                <label>Last Name</label>
+            </div>
+            <div class="control-group">
+                <span class="sex">Sex :</span>
+                <label class="control control--radio">Male
+                    <input type="radio" name="gender" VALUE="male" checked/>
+                    <div class="control__indicator"></div>
+                </label>
+                <label class="control control--radio">Female
+                    <input type="radio" name="gender" VALUE="female" />
+                    <div class="control__indicator"></div>
+                </label>
+                <label class="control control--radio">Others
+                    <input type="radio" name="gender"  VALUE="other"/>
+                    <div class="control__indicator"></div>
+                </label>
+            </div>
+            <div class="minput">
+                <input type="date" id="dob" name="date" dir="auto" data-date="" data-date-format="DD MM YYYY" placeholder="" value="" required />
+                <span class="bar"></span>
+                <label>Date Of Birth</label>
+            </div>
+            <div class="minput">
+                <input type="tel" id="phone" name="phone" dir="auto" placeholder="" value="" required />
+                <span class="bar"></span>
+                <label>Phone No.</label>
+            </div>
+            <div class="minput">
+                <input type="email" id="email" name="email" dir="auto" placeholder="" />
+                <span class="bar"></span>
+                <label>Email</label>
+            </div>
+            <div class="minput">
+                <input type="text" id="pAddress" name="pAddress" REQUIRED/>
+                <span class="bar"></span>
+                <label>Present Address</label>
+            </div>
+            <div class="minput">
+                <input type="text" id="perAddress" name="perAddress" REQUIRED/>
+                <span class="bar"></span>
+                <label>Permanent Address</label>
+            </div>
+            <div class="minput">
+                <input type="text" id="pincode" name="pincode" patter="^[0-9]*$" REQUIRED/>
+                <span class="bar"></span>
+                <label>Pincode</label>
+            </div>
+            <div class="minput">
+                <div class="select">
+                    <select id="city" name="city" required>
+                        <option value="">City</option>
+                        <option value="PinkCity">PinkCity</option>
+                        <option value="BlueCity">BlueCity</option>
+                        <option value="RedCity">RedCity</option>
+                    </select>
+                    <div class="select__arrow"></div>
+                </div>
+            </div>
+            <div class="minput">
+                <div class="select">
+                    <select id="state" name="state" required>
+                        <option value="">State</option>
+                        <option value="State 1">State 1</option>
+                        <option value="State 2">State 2</option>
+                        <option value="State 3">State 3</option>
+                    </select>
+                    <div class="select__arrow"></div>
+                </div>
+            </div>
+            <div class="minput">
+                <div class="select">
+                    <select id="country" name="country" required>
+                        <option value="">Country</option>
+                        <option value="Country 1">Country 1</option>
+                        <option value="Country 2">Country 2</option>
+                        <option value="Country 3">Country 3</option>
+                    </select>
+                    <div class="select__arrow"></div>
+                </div>
+            </div>
+            <div class="minput">
+                <div class="select">
+                    <select id="education" name="education" required>
+                        <option value="">Highest Education</option>
+                        <option value="10">10th</option>
+                        
+                    </select>
+                    <div class="select__arrow"></div>
+                </div>
+            </div>
+            <div class="minput">
+                <div class="select">
+                    <select id="hintquestion" name="hintqusetion" required>
+                        <option value="">Hint Question</option>
+                        <option value="Name">Enter name</option>
+                        <option value="City">Enter City</option>
+                        <option value="Country">Enter Country</option>
+                    </select>
+                    <div class="select__arrow"></div>
+                </div>
+            </div>
+            <div class="minput">
+                <input type="tel" id="hintanswer" name="hintanswer" dir="auto" placeholder="" value="" required>
+                <span class="bar"></span>
+                <label>Hint Answer</label>
+            </div>
+            <input type="submit" id="send" value="Submit" style="padding:10px;padding-top:15px;margin-bottom:100px">
+    </form>
+    </div>    
+</body>
+</html>
+
